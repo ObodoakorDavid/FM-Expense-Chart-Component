@@ -6,7 +6,7 @@ console.log(data);
 
 const ctx = document.getElementById("myChart");
 
-const colors = ['hsl(10, 79%, 65%)'];
+const colors = [];
 
 const obj = {
   type: "bar",
@@ -14,11 +14,12 @@ const obj = {
     labels: [],
     datasets: [
       {
-        label: "",
+        label: "Amount",
         data: [],
         borderWidth: 0,
         backgroundColor: colors,
         borderRadius: "4",
+        base: null,
       },
     ],
   },
@@ -32,6 +33,7 @@ const obj = {
 };
 
 let currHighest = 0;
+let indexOfHighest = 0;
 
 const getHighestValue = (arr) => {
   arr.forEach((each) => {
@@ -41,11 +43,22 @@ const getHighestValue = (arr) => {
   });
 };
 
-data.forEach((datum) => {
+data.forEach((datum, i) => {
   obj.data.labels.push(datum.day);
   obj.data.datasets[0].data.push(datum.amount);
-  
+  colors.push('red')
+  //   obj.data.datasets[0].label.push(`${datum.day}: ${datum.amount}`);
+  //   console.log(obj.data.datasets[0].label);
+  if (datum.amount > currHighest) {
+    // currHighest = datum.amount;
+    indexOfHighest = i;
+  } else {
+  }
 });
+
+colors[indexOfHighest] = "hsl(10, 79%, 65%)";
+
+console.log(indexOfHighest);
 
 new Chart(ctx, obj);
 
