@@ -15,6 +15,7 @@ const obj = {
     datasets: [
       {
         label: "Amount",
+        fill: false,
         data: [],
         borderWidth: 0,
         backgroundColor: colors,
@@ -27,6 +28,23 @@ const obj = {
     scales: {
       y: {
         beginAtZero: true,
+        grid: {
+          display: false,
+        },
+        border: {
+          display: false,
+        },
+        ticks: {
+          display: false,
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+        border: {
+          display: false,
+        },
       },
     },
   },
@@ -46,17 +64,20 @@ const getHighestValue = (arr) => {
 data.forEach((datum, i) => {
   obj.data.labels.push(datum.day);
   obj.data.datasets[0].data.push(datum.amount);
-  colors.push('red')
+  colors.push("hsl(10, 79%, 65%)");
   //   obj.data.datasets[0].label.push(`${datum.day}: ${datum.amount}`);
   //   console.log(obj.data.datasets[0].label);
   if (datum.amount > currHighest) {
-    // currHighest = datum.amount;
+    currHighest = datum.amount;
     indexOfHighest = i;
+    console.log(i);
   } else {
   }
 });
 
-colors[indexOfHighest] = "hsl(10, 79%, 65%)";
+colors[indexOfHighest] = "hsl(186, 34%, 60%)";
+console.log(indexOfHighest);
+console.log(colors);
 
 console.log(indexOfHighest);
 
