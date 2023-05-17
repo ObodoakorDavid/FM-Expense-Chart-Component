@@ -3,3 +3,10 @@
 body {
   text-align: center;
 }
+
+.chart-container {
+  position: relative;
+  height: 50vh;
+  width: 80%;
+  margin: 0 auto;
+}
