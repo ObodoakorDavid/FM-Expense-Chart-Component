@@ -1,12 +1,109 @@
 /** @format */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+
+:root {
+  --soft-red: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+  --dark-brown: hsl(25, 47%, 15%);
+  --medium-brown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --very-pale-orange: hsl(33, 100%, 98%);
+}
 
 body {
   text-align: center;
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--cream);
 }
+
+main {
+  width: 90%;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+}
+
+.balance-div {
+  background-color: var(--soft-red);
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 18px;
+}
+
+.balance-div div {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.balance-div div p {
+  margin: 0;
+}
+.balance-div div p:nth-of-type(1) {
+  font-size: small;
+}
+.balance-div div p:nth-of-type(2) {
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+/* ============= chart ==============  */
 
 .chart-container {
   position: relative;
   height: 50vh;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
+}
+
+.main-chart {
+  background-color: var(--very-pale-orange);
+  padding: 22px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.main-chart h2 {
+  margin: 0;
+}
+
+.bottom-part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--cream);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.bottom-part div:nth-of-type(1) p:nth-of-type(1) {
+  font-weight: 400;
+  color: var(--medium-brown);
+  margin: 0;
+}
+.bottom-part div:nth-of-type(1) p:nth-of-type(2) {
+  font-weight: bold;
+  font-size: xx-large;
+  color: var(--dark-brown);
+  margin: 0;
+}
+
+.bottom-part div:nth-of-type(2) {
+  text-align: right;
+}
+
+.bottom-part div:nth-of-type(2) p:nth-of-type(1) {
+  font-weight: 700;
+  color: var(--dark-brown);
+  margin: 0;
+}
+.bottom-part div:nth-of-type(2) p:nth-of-type(2) {
+  font-weight: 700;
+  color: var(--medium-brown);
+  font-size: small;
+  margin: 0;
 }

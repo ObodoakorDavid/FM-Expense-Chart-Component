@@ -21,6 +21,7 @@ const obj = {
         backgroundColor: colors,
         borderRadius: "4",
         base: null,
+        hoverBackgroundColor: ['red', 'white'],
       },
     ],
   },
@@ -69,12 +70,6 @@ data.forEach((datum, i) => {
     indexOfHighest = i;
   }
 });
-
-// let all = data.reduce((sum, curValue) => {
-//   return sum + curValue.amount;
-// }, 0);
-
-// console.log(all);
 
 colors[indexOfHighest] = "hsl(186, 34%, 60%)";
 console.log(indexOfHighest);

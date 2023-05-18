@@ -18,12 +18,28 @@
   <body>
     <main>
       <div class="balance-div">
-        <p>My Balance</p>
-        <p>$921.48</p>
-        <img src="" alt="" />
+        <div>
+          <p>My Balance</p>
+          <p>$921.48</p>
+        </div>
+        <img src="./images/logo.svg" alt="" />
       </div>
-      <div class="chart-container">
-        <canvas id="myChart"></canvas>
+      <!-- ============================= -->
+      <div class="main-chart">
+        <h2>Spending - Last 7 days</h2>
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="bottom-part">
+          <div>
+            <p>Total this month</p>
+            <p>$478.33</p>
+          </div>
+          <div>
+            <p>+2.4%</p>
+            <p>from last month</p>
+          </div>
+        </div>
       </div>
     </main>
     <script type="module" src="./app.js"></script>
