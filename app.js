@@ -7,6 +7,7 @@ console.log(data);
 const ctx = document.getElementById("myChart");
 
 const colors = [];
+const hoverColors = [];
 
 const obj = {
   type: "bar",
@@ -14,14 +15,15 @@ const obj = {
     labels: [],
     datasets: [
       {
-        label: "Amount",
+        label: null,
         fill: false,
         data: [],
         borderWidth: 0,
         backgroundColor: colors,
-        borderRadius: "4",
+        borderRadius: "6",
+        borderSkipped: false,
         base: null,
-        hoverBackgroundColor: ['red', 'white'],
+        hoverBackgroundColor: hoverColors,
       },
     ],
   },
@@ -32,6 +34,22 @@ const obj = {
       legend: {
         display: false,
       },
+      tooltip: {
+        callbacks: {
+          label: function (TooltipItem) {
+            return `$${TooltipItem.formattedValue}`;
+          },
+          title: function (TooltipItem) {
+            return "";
+          },
+        },
+        displayColors: false,
+      },
+    },
+    onHover: (event, chartElement) => {
+      event.native.target.style.cursor = chartElement[0]
+        ? "pointer"
+        : "default";
     },
     scales: {
       y: {
@@ -64,7 +82,9 @@ let indexOfHighest = 0;
 data.forEach((datum, i) => {
   obj.data.labels.push(datum.day);
   obj.data.datasets[0].data.push(datum.amount);
+  hoverColors.push("hsl(10, 79%, 65%, 0.8)");
   colors.push("hsl(10, 79%, 65%)");
+
   if (datum.amount > currHighest) {
     currHighest = datum.amount;
     indexOfHighest = i;
@@ -72,10 +92,8 @@ data.forEach((datum, i) => {
 });
 
 colors[indexOfHighest] = "hsl(186, 34%, 60%)";
-console.log(indexOfHighest);
-console.log(colors);
-
-console.log(indexOfHighest);
+hoverColors[indexOfHighest] = "hsl(186, 34%, 60%, 0.8)";
+console.log(hoverColors);
 
 new Chart(ctx, obj);
 
